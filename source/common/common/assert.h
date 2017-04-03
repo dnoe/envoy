@@ -1,6 +1,7 @@
 #pragma once
 
 #include "common/common/logger.h"
+#include "backward.hpp"
 
 /**
  * assert macro that uses our builtin logging which gives us thread ID and can log to various

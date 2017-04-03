@@ -121,6 +121,26 @@ genrule(
         build_file_content = BUILD,
     )
 
+def backward_repositories():
+    BUILD = """
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "backward",
+    hdrs = glob([
+        "**/*.hpp",
+    ]),
+    strip_include_prefix = "include",
+)
+"""
+    native.new_git_repository(
+        name = "backward_git",
+        build_file_content = BUILD,
+        # v1.3 release
+        commit = "cd1c4bd9e48afe812a0e996d335298c455afcd92",
+        remote = "https://github.com/bombela/backward-cpp.git",
+    )
+
 def boringssl_repositories():
     native.git_repository(
         name = "boringssl",
@@ -512,6 +532,7 @@ cc_library(
 
 def envoy_dependencies():
     ares_repositories()
+    backward_repositories()
     boringssl_repositories()
     googletest_repositories()
     http_parser_repositories()

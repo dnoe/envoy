@@ -6,6 +6,7 @@ envoy_cc_library(
     name = "assert_lib",
     hdrs = ["assert.h"],
     deps = [":logger_lib"],
+    external_deps = ["backward_git"],
 )
 
 envoy_cc_library(
