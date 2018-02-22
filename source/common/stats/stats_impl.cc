@@ -195,7 +195,7 @@ void TagProducerImpl::addExtractor(TagExtractorPtr extractor) {
 }
 
 void TagProducerImpl::forEachExtractorMatching(
-    const std::string& stat_name, std::function<void(const TagExtractorPtr&)> f) const {
+    const std::string& stat_name, const std::function<void(const TagExtractorPtr&)>& f) const {
   IntervalSetImpl<size_t> remove_characters;
   for (const TagExtractorPtr& tag_extractor : tag_extractors_without_prefix_) {
     f(tag_extractor);

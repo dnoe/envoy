@@ -124,7 +124,7 @@ private:
    * @param f std::function<void(const TagExtractorPtr&)> function to call for each extractor.
    */
   void forEachExtractorMatching(const std::string& stat_name,
-                                std::function<void(const TagExtractorPtr&)> f) const;
+                                const std::function<void(const TagExtractorPtr&)>& f) const;
 
   std::vector<TagExtractorPtr> tag_extractors_without_prefix_;
 
